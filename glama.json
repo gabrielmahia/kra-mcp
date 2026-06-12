@@ -1,0 +1,67 @@
+{
+  "$schema": "https://glama.ai/mcp/schemas/1.0.0/server.json",
+  "name": "kra-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for Kenya Revenue Authority tax compliance \u2014 PAYE calculator, PIN registration, VAT guide, filing calendar, withholding tax rates, investment incentives. 6 tools.",
+  "license": "MIT",
+  "author": {
+    "name": "Gabriel Mahia",
+    "email": "contact@aikungfu.dev"
+  },
+  "tools": [
+    {
+      "name": "paye_calculator",
+      "description": "Compute Kenya PAYE income tax 2025",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "pin_registration_guide",
+      "description": "KRA PIN registration guide",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "vat_guide",
+      "description": "Kenya VAT registration and rates",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "tax_filing_calendar",
+      "description": "Kenya tax filing deadlines",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "withholding_tax_rates",
+      "description": "Kenya withholding tax rates",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    },
+    {
+      "name": "tax_incentives_guide",
+      "description": "Kenya investment tax incentives",
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true
+      }
+    }
+  ]
+}
