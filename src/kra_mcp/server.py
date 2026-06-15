@@ -2,7 +2,7 @@
 from __future__ import annotations
 from typing import Optional
 from fastmcp import FastMCP
-mcp = FastMCP(name="kra-mcp", description="Kenya Revenue Authority tax compliance tools. DEMO data only.")
+mcp = FastMCP(name="kra-mcp", instructions="Kenya Revenue Authority tax compliance tools. DEMO data only.")
 
 TAX_BRACKETS_2025 = [
     (24000, 0.10), (8333, 0.25), (467667, 0.30), (300000, 0.325), (float("inf"), 0.35)
