@@ -1,5 +1,8 @@
 # kra-mcp
 
+[![kra-mcp Glama score](https://glama.ai/mcp/servers/gabrielmahia/kra-mcp/badges/score.svg)](https://glama.ai/mcp/servers/gabrielmahia/kra-mcp)
+
+
 > Kenya Revenue Authority tax compliance via MCP — PAYE calculator, VAT guide, PIN registration, tax incentives
 
 [![PyPI](https://img.shields.io/badge/PyPI-v0.1.0-blue)](https://github.com/gabrielmahia/kra-mcp)
