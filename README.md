@@ -4,6 +4,14 @@
 [![smithery badge](https://smithery.ai/badge/@gabrielmahia/kra-mcp)](https://smithery.ai/server/@gabrielmahia/kra-mcp)
 
 
+---
+**Compatible with `claude-sonnet-5`** (released 2026-06-30) — Anthropic's most agentic
+Sonnet yet. Runs multi-step tool chains end-to-end without stopping short.
+Install: `pip install kra-mcp` · Use with any MCP client.
+
+---
+
+
 > Kenya Revenue Authority tax compliance via MCP — PAYE calculator, VAT guide, PIN registration, tax incentives
 
 [![PyPI](https://img.shields.io/badge/PyPI-v0.1.0-blue)](https://github.com/gabrielmahia/kra-mcp)
