@@ -131,3 +131,7 @@ def tax_incentives_guide(sector: Optional[str] = None) -> dict:
     data = {k: v for k, v in INCENTIVES.items() if not s or k in s} or INCENTIVES
     return {"source": "DEMO — KRA and Kenya Investment Authority", "sector": sector,
             "incentives": data, "keninvest": "keninvest.go.ke for investment facilitation"}
+
+def main() -> None:
+    """Console entry point."""
+    mcp.run()
