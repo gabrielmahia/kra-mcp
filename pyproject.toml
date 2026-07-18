@@ -1,6 +1,10 @@
 [project.urls]
 Homepage = "https://github.com/gabrielmahia/kra-mcp"
 Repository = "https://github.com/gabrielmahia/kra-mcp"
+Documentation = "https://github.com/gabrielmahia/nairobi-stack"
+"MCP Registry" = "https://registry.modelcontextprotocol.io"
+Datasets = "https://huggingface.co/gmahia"
+Evaluation = "https://github.com/gabrielmahia/kipimo"
 
 [build-system]
 requires = ["setuptools>=68", "wheel"]
