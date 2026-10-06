@@ -17,7 +17,8 @@ PERSONAL_RELIEF_MONTHLY = 2400.0
 MONTHLY_BANDS = [(24000.0, 0.10), (8333.0, 0.25), (467667.0, 0.30), (300000.0, 0.325), (float("inf"), 0.35)]
 ASSUMPTIONS = [
     "Pensionable pay is taken to equal gross pay.",
-    "NSSF, SHIF and the housing levy are deducted before PAYE (most 2026 sources agree; one older source says the housing levy is not deductible: verify with KRA).",
+    "NSSF, SHIF and the housing levy are deducted before PAYE (KRA public notice effective 27 Dec 2024; Income Tax Act s.15(2)(ac) and (ae)). The old 15% housing relief no longer exists.",
+    "The Finance Act 2026 (effective 1 Jul 2026) did not change the PAYE bands (PwC tax alert, Jul 2026).",
     "Excludes insurance relief, mortgage interest, pension beyond NSSF, disability exemption and non-resident rules.",
 ]
 
@@ -69,7 +70,7 @@ def paye_calculator(annual_gross_income_kes: float, include_nhif: bool | None = 
               "nssf_annual": round(nssf * 12, 2), "shif_annual": round(shif * 12, 2), "housing_levy_annual": round(ahl * 12, 2)}
     if include_nhif:
         result["nhif"] = "NHIF was replaced by SHIF in October 2024; see shif_annual."
-    result.update({"status": "ESTIMATE", "statutory_as_of": STATUTORY_AS_OF, "assumptions": ASSUMPTIONS, "source": "NSSF Year-4 employer notice (Feb 2026); KRA-aligned 2026 payroll guidance. Verify at itax.kra.go.ke"})
+    result.update({"status": "ESTIMATE", "statutory_as_of": STATUTORY_AS_OF, "assumptions": ASSUMPTIONS, "source": "NSSF Year-4 employer notice (Feb 2026); KRA notice on PAYE computation (Dec 2024); Finance Act 2026 analyses. Verify at itax.kra.go.ke"})
     return result
 
 @mcp.tool(name="pin_registration_guide", description="Guide to registering for Kenya Revenue Authority PIN. DEMO.")

@@ -51,7 +51,7 @@ def test_nhif_is_gone():
 
 def test_the_assumptions_are_stated():
     r = monthly(60_000)
-    assert r["status"] == "ESTIMATE" and r["statutory_as_of"] == "2026-10" and any("housing levy" in a for a in r["assumptions"])
+    assert r["status"] == "ESTIMATE" and r["statutory_as_of"] == "2026-10" and any("housing levy" in a and "KRA" in a for a in r["assumptions"]) and any("Finance Act 2026" in a for a in r["assumptions"])
 
 
 def test_zero_income_is_all_zeros_not_an_error():
