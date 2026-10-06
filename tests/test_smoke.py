@@ -21,7 +21,7 @@ def test_all_sources_parse():
 def test_package_importable():
     """Top-level package must import without SyntaxError."""
     try:
-        import kra_mcp  # noqa: F401
+        import kra_mcp
     except ImportError:
         # Acceptable if optional deps absent in test env — SyntaxError is not.
         pass

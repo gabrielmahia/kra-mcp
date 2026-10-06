@@ -31,7 +31,7 @@ pip install kra-mcp
 
 | Tool | Description |
 |------|-------------|
-| `paye_calculator` | Kenya PAYE tax for 2025 — 7 brackets + personal relief |
+| `paye_calculator` | Kenya PAYE and take-home pay (2026 figures): NSSF capped at KES 6,480/month, SHIF 2.75%, housing levy 1.5%, 5 bands, KES 2,400 monthly relief. Estimate; see `assumptions` |
 | `pin_registration_guide` | Step-by-step KRA PIN registration (individual and company) |
 | `vat_guide` | VAT registration threshold, rates, filing deadlines |
 | `tax_filing_calendar` | All Kenya tax deadlines in one place |
