@@ -1,8 +1,8 @@
 {
   "$schema": "https://glama.ai/mcp/schemas/1.0.0/server.json",
   "name": "kra-mcp",
-  "version": "0.1.0",
-  "description": "MCP server for Kenya Revenue Authority tax compliance \u2014 PAYE calculator, PIN registration, VAT guide, filing calendar, withholding tax rates, investment incentives. 6 tools.",
+  "version": "0.1.5",
+  "description": "MCP server for Kenya Revenue Authority tax compliance — PAYE calculator, PIN reg",
   "license": "MIT",
   "author": {
     "name": "Gabriel Mahia",
@@ -11,7 +11,7 @@
   "tools": [
     {
       "name": "paye_calculator",
-      "description": "Compute Kenya PAYE income tax 2025",
+      "description": "Estimate Kenya PAYE and take-home pay from annual gross pay: NSSF (6%, capped at KES 6,480/month), SHIF (2.75%, min KES 300), housing levy (1.5%) deducted before PAYE bands, then KES 2,400/month personal relief. Statutory figures as of 2026-10. Estimate only; verify with KRA.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -20,7 +20,7 @@
     },
     {
       "name": "pin_registration_guide",
-      "description": "KRA PIN registration guide",
+      "description": "Guide to registering for Kenya Revenue Authority PIN. DEMO.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -29,7 +29,7 @@
     },
     {
       "name": "vat_guide",
-      "description": "Kenya VAT registration and rates",
+      "description": "Kenya VAT registration, rates, and filing guidance. DEMO.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -38,7 +38,7 @@
     },
     {
       "name": "tax_filing_calendar",
-      "description": "Kenya tax filing deadlines",
+      "description": "Kenya tax filing deadlines and calendar. DEMO.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -47,7 +47,7 @@
     },
     {
       "name": "withholding_tax_rates",
-      "description": "Kenya withholding tax rates",
+      "description": "Kenya withholding tax rates by payment type. DEMO.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -56,7 +56,7 @@
     },
     {
       "name": "tax_incentives_guide",
-      "description": "Kenya investment tax incentives",
+      "description": "Kenya investment tax incentives and reliefs. DEMO.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -77,5 +77,8 @@
     "mcp",
     "useful-rails",
     "ai-agents"
+  ],
+  "maintainers": [
+    "gabrielmahia"
   ]
 }
