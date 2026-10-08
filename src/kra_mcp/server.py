@@ -5,6 +5,9 @@ from typing import Optional
 
 from fastmcp import FastMCP
 
+# Annotations tell clients which tools are safe to auto-approve (read-only, no side effects).
+READ_ONLY = {"readOnlyHint": True, "idempotentHint": True, "openWorldHint": False}
+
 mcp = FastMCP(name="kra-mcp", instructions="Kenya Revenue Authority tax compliance tools. DEMO data only.")
 
 # Statutory figures, checked 2026-10-06 against NSSF's Year-4 employer notice (Feb 2026) and KRA-aligned 2026 payroll guidance.
@@ -52,7 +55,7 @@ def compute_paye(annual_income: float) -> dict:
             "net_paye_annual": round(net_monthly * 12, 2), "net_paye_monthly": round(net_monthly, 2), "breakdown": breakdown}
 
 
-@mcp.tool(name="paye_calculator", description="Estimate Kenya PAYE and take-home pay from annual gross pay: NSSF (6%, capped at KES 6,480/month), SHIF (2.75%, min KES 300), housing levy (1.5%) deducted before PAYE bands, then KES 2,400/month personal relief. Statutory figures as of 2026-10. Estimate only; verify with KRA.")
+@mcp.tool(name="paye_calculator", description="Estimate Kenya PAYE and take-home pay from annual gross pay: NSSF (6%, capped at KES 6,480/month), SHIF (2.75%, min KES 300), housing levy (1.5%) deducted before PAYE bands, then KES 2,400/month personal relief. Statutory figures as of 2026-10. Estimate only; verify with KRA.", annotations=READ_ONLY)
 def paye_calculator(annual_gross_income_kes: float, include_nhif: bool | None = True,
                     include_nssf: bool | None = True, include_shif: bool | None = True,
                     include_housing_levy: bool | None = True) -> dict:
@@ -73,7 +76,7 @@ def paye_calculator(annual_gross_income_kes: float, include_nhif: bool | None = 
     result.update({"status": "ESTIMATE", "statutory_as_of": STATUTORY_AS_OF, "assumptions": ASSUMPTIONS, "source": "NSSF Year-4 employer notice (Feb 2026); KRA notice on PAYE computation (Dec 2024); Finance Act 2026 analyses. Verify at itax.kra.go.ke"})
     return result
 
-@mcp.tool(name="pin_registration_guide", description="Guide to registering for Kenya Revenue Authority PIN. DEMO.")
+@mcp.tool(name="pin_registration_guide", description="Guide to registering for Kenya Revenue Authority PIN. DEMO.", annotations=READ_ONLY)
 def pin_registration_guide(applicant_type: str = "individual") -> dict:
     GUIDES = {
         "individual": {"steps": ["1. Go to iTax: itax.kra.go.ke", "2. New user registration",
@@ -90,7 +93,7 @@ def pin_registration_guide(applicant_type: str = "individual") -> dict:
     return {"source": "DEMO — itax.kra.go.ke", "applicant_type": applicant_type, **guide,
             "kra_portal": "itax.kra.go.ke", "kra_contact": "0800723470 (toll-free)"}
 
-@mcp.tool(name="vat_guide", description="Kenya VAT registration, rates, and filing guidance. DEMO.")
+@mcp.tool(name="vat_guide", description="Kenya VAT registration, rates, and filing guidance. DEMO.", annotations=READ_ONLY)
 def vat_guide(query: str) -> dict:
     INFO = {
         "registration":   "Register if annual taxable turnover > KES 5M. iTax portal. Certificate in 7 days.",
@@ -104,7 +107,7 @@ def vat_guide(query: str) -> dict:
     return {"source": "DEMO — verify at kra.go.ke/vat", "query": query,
             "information": matched or INFO, "threshold": "KES 5M annual turnover = mandatory registration"}
 
-@mcp.tool(name="tax_filing_calendar", description="Kenya tax filing deadlines and calendar. DEMO.")
+@mcp.tool(name="tax_filing_calendar", description="Kenya tax filing deadlines and calendar. DEMO.", annotations=READ_ONLY)
 def tax_filing_calendar() -> dict:
     return {"source": "DEMO — kra.go.ke", "year": 2025,
             "key_deadlines": [
@@ -117,7 +120,7 @@ def tax_filing_calendar() -> dict:
             "monthly": "PAYE and VAT due by 9th and 20th respectively each month",
             "penalties": "5% of tax due for late filing. 1% interest per month on late payment."}
 
-@mcp.tool(name="withholding_tax_rates", description="Kenya withholding tax rates by payment type. DEMO.")
+@mcp.tool(name="withholding_tax_rates", description="Kenya withholding tax rates by payment type. DEMO.", annotations=READ_ONLY)
 def withholding_tax_rates(payment_type: str | None = None) -> dict:
     RATES = {
             "dividends_resident":     "5% (final tax)",
@@ -138,7 +141,7 @@ def withholding_tax_rates(payment_type: str | None = None) -> dict:
     return {"source": "DEMO — kra.go.ke", "withholding_tax_rates": RATES,
             "note": "Rates may be reduced by Double Tax Agreements (DTAs). Verify at kra.go.ke"}
 
-@mcp.tool(name="tax_incentives_guide", description="Kenya investment tax incentives and reliefs. DEMO.")
+@mcp.tool(name="tax_incentives_guide", description="Kenya investment tax incentives and reliefs. DEMO.", annotations=READ_ONLY)
 def tax_incentives_guide(sector: str | None = None) -> dict:
     INCENTIVES = {
         "manufacturing": ["100% investment deduction on plant/machinery in EPZ",
