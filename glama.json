@@ -1,8 +1,8 @@
 {
   "$schema": "https://glama.ai/mcp/schemas/1.0.0/server.json",
   "name": "kra-mcp",
-  "version": "0.1.6",
-  "description": "MCP server for Kenya Revenue Authority tax compliance — PAYE calculator, PIN reg",
+  "version": "0.1.7",
+  "description": "Kenya Revenue Authority tax tools: PAYE calculator, VAT guide, PIN registration, filing calendar, withholding tax rates, tax incentives",
   "license": "MIT",
   "author": {
     "name": "Gabriel Mahia",
