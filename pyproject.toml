@@ -12,7 +12,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kra-mcp"
-version = "0.1.7"
+version = "0.1.8"
 description = "Kenya Revenue Authority tax tools: PAYE calculator, VAT guide, PIN registration, filing calendar, withholding tax rates, tax incentives"
 classifiers = [
     "Development Status :: 4 - Beta",
