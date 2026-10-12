@@ -11,7 +11,7 @@
   "tools": [
     {
       "name": "paye_calculator",
-      "description": "Estimate Kenya PAYE and take-home pay from annual gross pay: NSSF (6%, capped at KES 6,480/month), SHIF (2.75%, min KES 300), housing levy (1.5%) deducted before PAYE bands, then KES 2,400/month personal relief. Statutory figures as of 2026-10. Estimate only; verify with KRA.",
+      "description": "Estimate Kenya PAYE and take-home pay from annual gross pay. Use when someone asks what they will take home after statutory deductions, how much PAYE they owe, or how NSSF, SHIF and the housing levy affect it. Deducts NSSF (6%, capped at KES 6,480 per month), SHIF (2.75%, minimum KES 300) and the housing levy (1.5%) before applying the PAYE bands, then KES 2,400 per month personal relief. Returns gross, each monthly deduction, taxable pay, PAYE before and after relief, net monthly pay, the effective rate, annual totals, the assumptions used and the date the statutory figures are current to (2026-10). An estimate only: verify with KRA. Read-only; no side effects.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -20,7 +20,7 @@
     },
     {
       "name": "pin_registration_guide",
-      "description": "Guide to registering for Kenya Revenue Authority PIN. DEMO.",
+      "description": "Step-by-step guide to getting a KRA PIN (Personal Identification Number) on iTax, with the documents needed, cost and processing time. Use when someone asks how to register for a PIN. Returns steps, documents, cost, processing time and KRA contact details for an 'individual' or a 'company'; any other applicant type silently falls back to the individual guide, so check the applicant_type field in the response. Static summary labelled DEMO: confirm the steps on itax.kra.go.ke. Read-only.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -29,7 +29,7 @@
     },
     {
       "name": "vat_guide",
-      "description": "Kenya VAT registration, rates, and filing guidance. DEMO.",
+      "description": "Kenya VAT basics: the registration threshold (KES 5 million annual taxable turnover), the standard rate and zero-rated or exempt categories, filing, refunds and government VAT withholding. Use when asked about VAT rules; for when a VAT return is due use tax_filing_calendar. Keywords in the query (registration, rate, filing, refund, withholding) select the matching entries; if none match, all entries are returned. Static summary labelled DEMO: verify at kra.go.ke. Read-only.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -38,7 +38,7 @@
     },
     {
       "name": "tax_filing_calendar",
-      "description": "Kenya tax filing deadlines and calendar. DEMO.",
+      "description": "The main recurring Kenya tax filing deadlines: individual income tax return (30 June, for the previous calendar year), company income tax return (six months after the accounting year-end), monthly PAYE (9th) and VAT (20th), and the late-filing and late-payment penalties. Use when someone asks when a return or payment is due. Takes no arguments. Not year-specific: these are standing statutory deadlines checked against KRA's published guidance on 2026-10-12, not a dated calendar for one year. Read-only.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -47,7 +47,7 @@
     },
     {
       "name": "withholding_tax_rates",
-      "description": "Kenya withholding tax rates by payment type. DEMO.",
+      "description": "Kenya withholding tax rates by payment type (dividends, bank interest, professional and management fees, royalties, commercial rent, contractor payments), resident versus non-resident. Use when working out how much tax to withhold from a payment. With payment_type it returns the matching rates, or a pointer to kra.go.ke if nothing matches; with no argument it returns all rates. Rates may be reduced by Double Tax Agreements. Static summary labelled DEMO and not verified against current law: confirm before relying. Read-only.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
@@ -56,7 +56,7 @@
     },
     {
       "name": "tax_incentives_guide",
-      "description": "Kenya investment tax incentives and reliefs. DEMO.",
+      "description": "Kenya investment tax incentives and reliefs by sector (manufacturing, agriculture, technology, exports, pension, startup). Use when exploring tax reliefs for a business or for pension contributions. With sector it returns the matching incentives, or all sectors if none match; with no argument it returns everything. Static summary labelled DEMO and NOT verified against current law (some listed incentives are unverified): confirm with KRA or KenInvest before relying. Read-only.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
