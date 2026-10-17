@@ -1,17 +1,17 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-10-17/server.schema.json",
   "name": "io.github.gabrielmahia/kra-mcp",
-  "description": "MCP server for Kenya Revenue Authority tax workflows and information",
+  "description": "Kenya tax tools: PAYE calculator (2026 rates), VAT, PIN, filing calendar, withholding. Estimates.",
   "repository": {
     "url": "https://github.com/gabrielmahia/kra-mcp",
     "source": "github"
   },
-  "version": "0.1.9",
+  "version": "0.1.10",
   "packages": [
     {
       "registryType": "pypi",
       "identifier": "kra-mcp",
-      "version": "0.1.9",
+      "version": "0.1.10",
       "transport": {
         "type": "stdio"
       }
