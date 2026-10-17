@@ -11,7 +11,7 @@
   "tools": [
     {
       "name": "paye_calculator",
-      "description": "Estimate Kenya PAYE and take-home pay from annual gross pay. Use when someone asks what they will take home after statutory deductions, how much PAYE they owe, or how NSSF, SHIF and the housing levy affect it. Deducts NSSF (6%, capped at KES 6,480 per month), SHIF (2.75%, minimum KES 300) and the housing levy (1.5%) before applying the PAYE bands, then KES 2,400 per month personal relief. Returns gross, each monthly deduction, taxable pay, PAYE before and after relief, net monthly pay, the effective rate, annual totals, the assumptions used and the date the statutory figures are current to (2026-10). An estimate only: verify with KRA. Read-only; no side effects.",
+      "description": "Estimate Kenya PAYE and take-home pay from annual gross pay. Use when someone asks what they will take home after statutory deductions, how much PAYE they owe, or how NSSF, SHIF and the housing levy affect it. Deducts NSSF (6%, capped at KES 6,480 per month), SHIF (2.75%, minimum KES 300) and the housing levy (1.5%) before applying the PAYE bands, then KES 2,400 per month personal relief. Returns gross, each monthly deduction, taxable pay, PAYE before and after relief, net monthly pay, the effective rate, annual totals, the assumptions used and the date the statutory figures are current to (2026-10). An estimate only: verify with KRA. It applies current law; a proposed PAYE relief that is not yet law is reported in pending_changes, not applied. Read-only; no side effects.",
       "annotations": {
         "readOnlyHint": true,
         "destructiveHint": false,
