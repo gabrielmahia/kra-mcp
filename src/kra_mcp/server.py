@@ -14,6 +14,8 @@ mcp = FastMCP(name="kra-mcp", instructions="Kenya Revenue Authority tax complian
 # Statutory figures, checked 2026-10-06 against NSSF's Year-4 employer notice (Feb 2026) and KRA-aligned 2026 payroll guidance.
 # Review each February (NSSF steps) and after every Finance Act. Estimates only: verify with KRA / your payroll provider.
 STATUTORY_AS_OF = "2026-10"
+PENDING_CHANGES = ("PROPOSED, NOT LAW: the Treasury has said it will bring a Tax Laws Amendment Bill (reported as expected around October to November 2026) that could raise the tax-free income threshold from KES 24,000 to 30,000 a month, raise personal relief above KES 2,400 and widen the PAYE bands. "
+                   "The Finance Bill 2026 did not change PAYE. This tool applies current law only: re-check after any such change is enacted.")
 NSSF_RATE, NSSF_UPPER_EARNINGS_LIMIT = 0.06, 108_000.0   # employee 6% of pensionable pay, capped: max KES 6,480/month from Feb 2026
 SHIF_RATE, SHIF_MINIMUM = 0.0275, 300.0                   # SHIF replaced NHIF in Oct 2024: 2.75% of gross, minimum KES 300, no cap
 AHL_RATE = 0.015                                          # Affordable Housing Levy: employee 1.5% of gross
@@ -56,7 +58,7 @@ def compute_paye(annual_income: float) -> dict:
             "net_paye_annual": round(net_monthly * 12, 2), "net_paye_monthly": round(net_monthly, 2), "breakdown": breakdown}
 
 
-@mcp.tool(name="paye_calculator", description="Estimate Kenya PAYE and take-home pay from annual gross pay. Use when someone asks what they will take home after statutory deductions, how much PAYE they owe, or how NSSF, SHIF and the housing levy affect it. Deducts NSSF (6%, capped at KES 6,480 per month), SHIF (2.75%, minimum KES 300) and the housing levy (1.5%) before applying the PAYE bands, then KES 2,400 per month personal relief. Returns gross, each monthly deduction, taxable pay, PAYE before and after relief, net monthly pay, the effective rate, annual totals, the assumptions used and the date the statutory figures are current to (2026-10). An estimate only: verify with KRA. Read-only; no side effects.", annotations=READ_ONLY)
+@mcp.tool(name="paye_calculator", description="Estimate Kenya PAYE and take-home pay from annual gross pay. Use when someone asks what they will take home after statutory deductions, how much PAYE they owe, or how NSSF, SHIF and the housing levy affect it. Deducts NSSF (6%, capped at KES 6,480 per month), SHIF (2.75%, minimum KES 300) and the housing levy (1.5%) before applying the PAYE bands, then KES 2,400 per month personal relief. Returns gross, each monthly deduction, taxable pay, PAYE before and after relief, net monthly pay, the effective rate, annual totals, the assumptions used and the date the statutory figures are current to (2026-10). An estimate only: verify with KRA. It applies current law; a proposed PAYE relief that is not yet law is reported in pending_changes, not applied. Read-only; no side effects.", annotations=READ_ONLY)
 def paye_calculator(
     annual_gross_income_kes: Annotated[float, Field(description="Annual gross pay in Kenya shillings (KES). Negative values are treated as 0.")],
     include_nhif: Annotated[bool | None, Field(description="Deprecated and ignored: NHIF was replaced by SHIF. Kept so existing callers do not break.")] = True,
@@ -78,7 +80,7 @@ def paye_calculator(
               "nssf_annual": round(nssf * 12, 2), "shif_annual": round(shif * 12, 2), "housing_levy_annual": round(ahl * 12, 2)}
     if include_nhif:
         result["nhif"] = "NHIF was replaced by SHIF in October 2024; see shif_annual."
-    result.update({"status": "ESTIMATE", "statutory_as_of": STATUTORY_AS_OF, "assumptions": ASSUMPTIONS, "source": "NSSF Year-4 employer notice (Feb 2026); KRA notice on PAYE computation (Dec 2024); Finance Act 2026 analyses. Verify at itax.kra.go.ke"})
+    result.update({"status": "ESTIMATE", "statutory_as_of": STATUTORY_AS_OF, "pending_changes": PENDING_CHANGES, "assumptions": ASSUMPTIONS, "source": "NSSF Year-4 employer notice (Feb 2026); KRA notice on PAYE computation (Dec 2024); Finance Act 2026 analyses. Verify at itax.kra.go.ke"})
     return result
 
 @mcp.tool(name="pin_registration_guide", description="Step-by-step guide to getting a KRA PIN (Personal Identification Number) on iTax, with the documents needed, cost and processing time. Use when someone asks how to register for a PIN. Returns steps, documents, cost, processing time and KRA contact details for an 'individual' or a 'company'; any other applicant type silently falls back to the individual guide, so check the applicant_type field in the response. Static summary labelled DEMO: confirm the steps on itax.kra.go.ke. Read-only.", annotations=READ_ONLY)
