@@ -1,6 +1,8 @@
 """KraMCP — Kenya Revenue Authority Tax Compliance Tools (6 tools). paye_calculator uses 2026 statutory figures (estimate); other tools are DEMO data."""
 from __future__ import annotations
 
+from importlib.metadata import PackageNotFoundError
+from importlib.metadata import version as _pkg_version
 from typing import Annotated, Optional
 
 from fastmcp import FastMCP
@@ -9,7 +11,13 @@ from pydantic import Field
 # Annotations tell clients which tools are safe to auto-approve (read-only, no side effects).
 READ_ONLY = {"readOnlyHint": True, "idempotentHint": True, "openWorldHint": False}
 
-mcp = FastMCP(name="kra-mcp", instructions="Kenya Revenue Authority tax compliance tools. DEMO data only.")
+try:
+    _VERSION = _pkg_version("kra-mcp")
+except PackageNotFoundError:  # a source tree that was never installed
+    _VERSION = "0+unknown"
+
+
+mcp = FastMCP(name="kra-mcp", instructions="Kenya Revenue Authority tax compliance tools. DEMO data only.", version=_VERSION)
 
 # Statutory figures, checked 2026-10-06 against NSSF's Year-4 employer notice (Feb 2026) and KRA-aligned 2026 payroll guidance.
 # Review each February (NSSF steps) and after every Finance Act. Estimates only: verify with KRA / your payroll provider.
