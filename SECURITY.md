@@ -1,5 +1,10 @@
 # Security Policy
 
+Reporting a Vulnerability
+
+If you discover an error:
+
 DO NOT open a public issue.
 
-Email: contact@aikungfu.dev
+Email directly to:
+contact@aikungfu.dev
