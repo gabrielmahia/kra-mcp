@@ -1,4 +1,5 @@
 [project.urls]
+Issues = "https://github.com/gabrielmahia/kra-mcp/issues"
 Homepage = "https://github.com/gabrielmahia/kra-mcp"
 Repository = "https://github.com/gabrielmahia/kra-mcp"
 Documentation = "https://github.com/gabrielmahia/nairobi-stack"
@@ -12,7 +13,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kra-mcp"
-version = "0.1.13"
+version = "0.1.14"
 description = "Kenya Revenue Authority tax tools: PAYE calculator, VAT guide, PIN registration, filing calendar, withholding tax rates, tax incentives"
 classifiers = [
     "Development Status :: 4 - Beta",
