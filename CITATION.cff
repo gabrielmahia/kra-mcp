@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "kra-mcp"
+abstract: "Kenya Revenue Authority tax tools: PAYE calculator, VAT guide, PIN registration, filing calendar, withholding tax rates, tax incentives"
+version: "0.1.14"
+authors:
+  - family-names: "Mahia"
+    given-names: "Gabriel"
+repository-code: "https://github.com/gabrielmahia/kra-mcp"
+license: "MIT"
