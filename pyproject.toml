@@ -13,7 +13,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kra-mcp"
-version = "0.1.14"
+version = "0.1.15"
 description = "Kenya Revenue Authority tax tools: PAYE calculator, VAT guide, PIN registration, filing calendar, withholding tax rates, tax incentives"
 classifiers = [
     "Development Status :: 4 - Beta",
@@ -29,7 +29,7 @@ classifiers = [
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.11"
-dependencies = ["fastmcp>=0.9"]
+dependencies = ["fastmcp>=4.1.4"]
 license-files = ["LICENSE"]
 
 [project.scripts]
