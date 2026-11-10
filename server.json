@@ -6,12 +6,12 @@
     "url": "https://github.com/gabrielmahia/kra-mcp",
     "source": "github"
   },
-  "version": "0.1.14",
+  "version": "0.1.15",
   "packages": [
     {
       "registryType": "pypi",
       "identifier": "kra-mcp",
-      "version": "0.1.14",
+      "version": "0.1.15",
       "transport": {
         "type": "stdio"
       }
